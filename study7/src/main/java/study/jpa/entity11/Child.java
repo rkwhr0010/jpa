@@ -1,0 +1,21 @@
+package study.jpa.entity11;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+import lombok.Data;
+
+//@Entity
+@Data
+public class Child {
+	@Id
+	@GeneratedValue
+	@Column(name = "child_id")
+	private Long id;
+	private String name;
+	@OneToOne(mappedBy = "child")
+	private Parent parent;
+}
