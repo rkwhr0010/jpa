@@ -30,13 +30,25 @@ public class Main {
 //		bulk4();
 //		bulk5();
 //		example();
-		flush();
+//		flush();
+		nplusOne();
 		
 		
 		emf.close();
 	}
 	
 	
+	private static void nplusOne() {
+		logic(em -> {
+			String sql = "select o from Order o join fetch o.member m join fetch o.product";
+			List<Order> resultList = em.createQuery(sql, Order.class)
+				.getResultList();
+			System.out.println(resultList.size());
+			
+		});
+	}
+
+
 	private static void flush() {
 		logic(em -> {
 			// 기본 값이 AUTO

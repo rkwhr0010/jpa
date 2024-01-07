@@ -1,4 +1,4 @@
-package study.jpa.entity7;
+package study.jpa.entity;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Embedded;
@@ -11,7 +11,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
-@Entity
+//@Entity
 @Table(name = "Orders")
 @Data
 public class Order {
