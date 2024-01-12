@@ -11,7 +11,7 @@ import jakarta.persistence.OneToMany;
 import lombok.Data;
 import lombok.ToString;
 
-@Entity
+//@Entity
 @Data
 @ToString(exclude = {"members"})
 public class Team {

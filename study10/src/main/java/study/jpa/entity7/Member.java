@@ -23,7 +23,7 @@ import jakarta.persistence.StoredProcedureParameter;
 import lombok.Data;
 import lombok.ToString;
 
-@Entity
+//@Entity
 @Data
 @ToString(exclude = {"orders"})
 @SqlResultSetMapping(name = "memberJoinOrders",

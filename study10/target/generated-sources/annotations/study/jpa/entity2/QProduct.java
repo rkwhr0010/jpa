@@ -1,4 +1,4 @@
-package study.jpa.entity7;
+package study.jpa.entity2;
 
 import static com.querydsl.core.types.PathMetadataFactory.*;
 
@@ -15,7 +15,7 @@ import com.querydsl.core.types.Path;
 @Generated("com.querydsl.codegen.DefaultEntitySerializer")
 public class QProduct extends EntityPathBase<Product> {
 
-    private static final long serialVersionUID = 1543721437L;
+    private static final long serialVersionUID = 1991059160L;
 
     public static final QProduct product = new QProduct("product");
 

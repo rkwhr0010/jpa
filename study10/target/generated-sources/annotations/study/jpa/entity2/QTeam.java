@@ -1,4 +1,4 @@
-package study.jpa.entity7;
+package study.jpa.entity2;
 
 import static com.querydsl.core.types.PathMetadataFactory.*;
 
@@ -16,7 +16,7 @@ import com.querydsl.core.types.dsl.PathInits;
 @Generated("com.querydsl.codegen.DefaultEntitySerializer")
 public class QTeam extends EntityPathBase<Team> {
 
-    private static final long serialVersionUID = -579693521L;
+    private static final long serialVersionUID = -722839276L;
 
     public static final QTeam team = new QTeam("team");
 

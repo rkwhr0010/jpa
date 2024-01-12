@@ -33,8 +33,8 @@ public class Main {
 //		findThetaJoin();
 //		findJoinOn();
 //		findFetchJoin();
-//		findCollectionFetchJoin();
-		findFetchJoinDistinct();
+		findCollectionFetchJoin();
+//		findFetchJoinDistinct();
 		
 		emf.close();
 	}
@@ -58,9 +58,9 @@ public class Main {
 			String sql = "select t from Team t join fetch t.members";
 			TypedQuery<Team> typedQuery = em.createQuery(sql, Team.class);
 			typedQuery.getResultList().forEach(t -> {
-				System.out.println(System.identityHashCode(t));
+				System.out.println(t);
 				t.getMembers().forEach(m -> {
-					System.out.println(System.identityHashCode(m.getTeam()));
+					System.out.println(m);
 				});
 				System.out.println();
 			});
