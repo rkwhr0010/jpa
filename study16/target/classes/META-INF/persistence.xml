@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+	version="3.0">
+
+	<persistence-unit name="studyjpa" transaction-type="RESOURCE_LOCAL">
+		<shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
+		
+		<properties>
+			<!-- DB 연결 정보 -->
+<!--			<property name="jakarta.persistence.jdbc.driver"-->
+<!--				value="com.mysql.cj.jdbc.Driver" />-->
+<!--			<property name="jakarta.persistence.jdbc.url"-->
+<!--				value="jdbc:mysql://localhost:55555/jpa?characterEncoding=utf8" />-->
+			<property name="jakarta.persistence.jdbc.driver"
+				value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" />
+			<property name="jakarta.persistence.jdbc.url"
+				value="jdbc:log4jdbc:mysql://localhost:55555/jpa?characterEncoding=utf8" />
+			<property name="jakarta.persistence.jdbc.user" value="root" />
+			<property name="jakarta.persistence.jdbc.password" value="root" />
+			<property name="hibernate.hikari.poolName" value="pool" />
+			<property name="hibernate.hikari.maximumPoolSize" value="10" />
+			<property name="hibernate.hikari.minimumIdle" value="10" />
+			<property name="hibernate.hikari.connectionTimeout" value="1000" />
+			
+			<!--하이버네이트-ehchche 설정 -->
+			<!--2차 캐시 활성화, 엔티티 캐시 및 컬렉션 캐시-->
+			<proerty name="hibernate.cache.user_second_level_cache" value="true"/>
+			<!--쿼리 캐시 활성화-->
+			<proerty name="hibernate.cache.use_query_cache" value="true"/>
+			<!--2차 캐시를 처리할 클래스를 지정-->
+			<proerty name="hibernate.cache.region.factory_class" 
+				value="org.hibernate.cache.ehcache.EhCacheRegionFactory"/>
+			<!--하이버네이트가 캐시관련 통계 정보를 생성 해줌-->
+			<proerty name="hibernate.generate_statistics" value="true"/>
+			
+			<!--  MySql 방언 -->
+			<property name="hibernate.dialect"
+				value="org.hibernate.dialect.MySQLDialect" />
+<!--			<property name="hibernate.jdbc.batch_size" value="1000"/>-->
+			<!-- SQL 출력 -->
+<!--			<property name="hibernate.show_sql" value="true" />-->
+			<!-- SQL 이쁘게 출력 -->
+			<property name="hibernate.format_sql" value="true" />
+			<!-- 주석도 함께 출력 -->
+			<property name="hibernate.use_sql_comments" value="true" />
+			<!-- JPA 표준에 맞춘 새로운 키 생성 전략 사용 -->
+			<property name="hibernate.id.new_generator_mappings" value="true" />
+			<!-- 실습에서만 사용할 것, @Entity에 따라 DDL 명령을 자동 실행해 준다. -->
+			<property name="hibernate.hbm2ddl.auto" value="create" />
+<!--			<property name="hibernate.implicit_naming_strategy" value="jpa" />-->
+<!--			<property name="hibernate.physical_naming_strategy" -->
+<!--				value="org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy" />-->
+		</properties>
+	</persistence-unit>
+</persistence>
